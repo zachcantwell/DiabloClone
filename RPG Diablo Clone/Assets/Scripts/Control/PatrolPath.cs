@@ -2,28 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace RPG.Core
+namespace RPG.Control
 {
     public class PatrolPath : MonoBehaviour
     {
-        [SerializeField]
-        private Transform[] _pathPoints;
+        const float waypointGizmoRadius = 0.3f;
 
-        private void Awake() {
-            _pathPoints = transform.GetComponentsInChildren<Transform>();    
+        private void OnDrawGizmos() {
+            for (int i = 0; i < transform.childCount; i++)
+            {
+                int j = GetNextIndex(i);
+                Gizmos.DrawSphere(GetWaypoint(i), waypointGizmoRadius);
+                Gizmos.DrawLine(GetWaypoint(i), GetWaypoint(j));
+            }
         }
 
-        private void OnDrawGizmosSelected() {
-            
-            _pathPoints = transform.GetComponentsInChildren<Transform>();    
-            Gizmos.color = Color.magenta;
-
-            for(int i = 1; i < _pathPoints.Length - 1; i++)
+        public int GetNextIndex(int i)
+        {
+            if (i + 1 == transform.childCount)
             {
-                Gizmos.DrawLine(_pathPoints[i].position, _pathPoints[i+1].position);
+                return 0;
             }
-           
+            return i + 1;
+        }
+
+        public Vector3 GetWaypoint(int i)
+        {
+            return transform.GetChild(i).position;
         }
     }
 }
-
