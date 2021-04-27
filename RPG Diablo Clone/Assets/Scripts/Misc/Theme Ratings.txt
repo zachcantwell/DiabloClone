@@ -1,2 +1,16 @@
-Theme Ratings
+Theme Ratings:
 
+Quiet Light 3
+Solarized Light 4
+Abyss 5
+dark+ 7
+eppz 6
+kimbie dark 6
+lateus black 8
+lateus blue 8
+monokai 5
+outer heaven 5
+tmw night blue 4
+red 4
+solarized dark 5
+visual studio dark 7

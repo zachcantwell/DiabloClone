@@ -22,6 +22,8 @@ namespace RPG.Control
 
         Vector3 guardPosition;
         float timeSinceLastSawPlayer = Mathf.Infinity;
+        float timeSinceArriveAtWaypoint = Mathf.Infinity;
+        float maxDwellTime = 2f;
         int currentWaypointIndex = 0;
 
         private void Start() {
@@ -51,7 +53,13 @@ namespace RPG.Control
                 PatrolBehaviour();
             }
 
+            UpdateTimers();
+        }
+
+        private void UpdateTimers()
+        {
             timeSinceLastSawPlayer += Time.deltaTime;
+            timeSinceArriveAtWaypoint += Time.deltaTime;
         }
 
         private void PatrolBehaviour()
@@ -61,13 +69,17 @@ namespace RPG.Control
             if (patrolPath != null)
             {
                 if (AtWaypoint())
-                {
+                {   
+                    timeSinceArriveAtWaypoint = 0f;
                     CycleWaypoint();
                 }
                 nextPosition = GetCurrentWaypoint();
             }
 
-            mover.StartMoveAction(nextPosition);
+            if(timeSinceArriveAtWaypoint > maxDwellTime)
+            {
+                mover.StartMoveAction(nextPosition);
+            }
         }
 
         private bool AtWaypoint()
