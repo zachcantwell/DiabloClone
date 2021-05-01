@@ -12,9 +12,9 @@ namespace RPG.Movement
         private NavMeshAgent navMeshAgent;
         private Health health;
 
-
         private void Start()
         {
+
             health = GetComponent<Health>();
             navMeshAgent = GetComponent<NavMeshAgent>();
 

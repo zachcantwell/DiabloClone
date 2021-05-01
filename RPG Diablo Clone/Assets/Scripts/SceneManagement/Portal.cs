@@ -8,8 +8,15 @@ namespace RPG.SceneManagement
 {
     public class Portal : MonoBehaviour
     {
+        [System.Serializable]
+        public enum DestinationPortal
+        {
+            A, B, C, D, E
+        }
         private Transform _spawnPoint;
-        public int _desiredSceneIndex = 0;
+
+        [SerializeField] public DestinationPortal _desiredPortal;
+        public int _desiredScene = 0;
 
         void Awake()
         {
@@ -33,7 +40,7 @@ namespace RPG.SceneManagement
         private IEnumerator IELevelTransition()
         {
             print("Portal hit");
-            yield return SceneManager.LoadSceneAsync(_desiredSceneIndex);
+            yield return SceneManager.LoadSceneAsync(_desiredScene);
 
             Portal otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
@@ -49,7 +56,10 @@ namespace RPG.SceneManagement
             {
                 if (portal != this)
                 {
-                    return portal;
+                    if (portal._desiredPortal == this._desiredPortal)
+                    {
+                        return portal;
+                    }
                 }
             }
             return null;

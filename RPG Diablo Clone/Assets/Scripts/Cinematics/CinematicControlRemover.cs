@@ -9,12 +9,12 @@ namespace RPG.Cinematics
 {
     public class CinematicControlRemover : MonoBehaviour
     {
-        void Awake()
+        void Start()
         {
             GetComponent<PlayableDirector>().stopped += EnableControl;
             GetComponent<PlayableDirector>().played += DisableControl;
         }
-        
+
         public void EnableControl(PlayableDirector pd)
         {
             print("Enabled");
