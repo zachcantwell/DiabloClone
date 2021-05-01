@@ -6,12 +6,12 @@ namespace RPG.Movement
 {
     public class Mover : MonoBehaviour, IAction
     {
-        [SerializeField]private Transform target;
-        [SerializeField]private float _maxNavSpeed = 5.6f;
-        
+        [SerializeField] private Transform target;
+        [SerializeField] private float _maxNavSpeed = 5.6f;
+
         private NavMeshAgent navMeshAgent;
         private Health health;
-        
+
 
         private void Start()
         {
@@ -21,7 +21,7 @@ namespace RPG.Movement
 
         void Update()
         {
-            if(health.IsDead())
+            if (health.IsDead())
             {
                 navMeshAgent.enabled = false;
             }

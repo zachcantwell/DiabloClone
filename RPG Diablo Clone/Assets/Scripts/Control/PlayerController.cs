@@ -2,6 +2,7 @@
 using RPG.Core;
 using RPG.Movement;
 using UnityEngine;
+using UnityEngine.Playables;
 
 namespace RPG.Control
 {
@@ -16,9 +17,9 @@ namespace RPG.Control
 
         private void Update()
         {
-            if(health.IsDead()) return;
-            if (InteractWithCombat()) return;
-            if (InteractWithMovement()) return;
+                if (health.IsDead()) return;
+                if (InteractWithCombat()) return;
+                if (InteractWithMovement()) return;
         }
 
         private bool InteractWithCombat()

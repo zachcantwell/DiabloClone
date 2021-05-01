@@ -1,6 +1,6 @@
-﻿using RPG.Core;
+﻿using UnityEngine;
 using RPG.Movement;
-using UnityEngine;
+using RPG.Core;
 
 namespace RPG.Combat
 {
@@ -77,6 +77,7 @@ namespace RPG.Combat
         {
             StopAttack();
             target = null;
+            GetComponent<Mover>().Cancel();
         }
 
         private void StopAttack()

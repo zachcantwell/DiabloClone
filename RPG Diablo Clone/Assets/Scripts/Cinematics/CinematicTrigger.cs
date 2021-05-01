@@ -15,5 +15,6 @@ namespace RPG.Cinematics
                 GetComponent<BoxCollider>().enabled = false;
             }
         }
+
     }
 }
