@@ -15,8 +15,10 @@ namespace RPG.Movement
 
         private void Start()
         {
-            navMeshAgent = GetComponent<NavMeshAgent>();
             health = GetComponent<Health>();
+            navMeshAgent = GetComponent<NavMeshAgent>();
+
+            navMeshAgent.enabled = true;
         }
 
         void Update()

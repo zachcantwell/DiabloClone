@@ -94,6 +94,11 @@ PrefabInstance:
       propertyPath: m_AngularSpeed
       value: 6666
       objectReference: {fileID: 0}
+    - target: {fileID: 5227352601250442809, guid: fb1d63530acb64440bdf3aa9a0ae1d91,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5227352601250442813, guid: fb1d63530acb64440bdf3aa9a0ae1d91,
         type: 3}
       propertyPath: _timeBetweenAttacks
