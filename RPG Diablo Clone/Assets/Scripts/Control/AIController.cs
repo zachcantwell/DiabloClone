@@ -5,6 +5,7 @@ using RPG.Combat;
 using RPG.Core;
 using RPG.Movement;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace RPG.Control
 {
@@ -24,9 +25,15 @@ namespace RPG.Control
         float timeSinceLastSawPlayer = Mathf.Infinity;
         float timeSinceArriveAtWaypoint = Mathf.Infinity;
         float maxDwellTime = 2f;
+        [SerializeField][Range(0,1)] float _moveSpeed = 0.4f;
+        
         int currentWaypointIndex = 0;
 
+
+        private NavMeshAgent _navMeshAgent;  
+
         private void Start() {
+            _navMeshAgent = GetComponent<NavMeshAgent>();
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
             mover = GetComponent<Mover>();
@@ -78,7 +85,7 @@ namespace RPG.Control
 
             if(timeSinceArriveAtWaypoint > maxDwellTime)
             {
-                mover.StartMoveAction(nextPosition);
+                mover.StartMoveAction(nextPosition, _moveSpeed );
             }
         }
 
