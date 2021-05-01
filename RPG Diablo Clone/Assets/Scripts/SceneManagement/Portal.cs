@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using RPG.Core;
 
 namespace RPG.SceneManagement
 {
@@ -17,10 +18,10 @@ namespace RPG.SceneManagement
 
         [SerializeField] public DestinationPortal _desiredPortal;
         public int _desiredScene = 0;
+        public float _waitTime = 0.5f;
 
         void Awake()
         {
-            DontDestroyOnLoad(this.gameObject);
             _spawnPoint = transform.GetChild(0);
 
             if (_spawnPoint)
@@ -39,11 +40,21 @@ namespace RPG.SceneManagement
 
         private IEnumerator IELevelTransition()
         {
-            print("Portal hit");
+            DontDestroyOnLoad(this.gameObject);
+
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            player.GetComponent<ActionScheduler>().CancelCurrentAction();
+
+            FadePanel fader = FindObjectOfType<FadePanel>();
+            yield return fader.IEFadeIn();
+
             yield return SceneManager.LoadSceneAsync(_desiredScene);
 
             Portal otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
+
+            yield return new WaitForSeconds(_waitTime);
+            yield return fader.IEFadeOut();
 
             print("Portal loaded scene");
             Destroy(this.gameObject);

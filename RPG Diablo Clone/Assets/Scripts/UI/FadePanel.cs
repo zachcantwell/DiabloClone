@@ -5,21 +5,12 @@ using UnityEngine.UI;
 
 public class FadePanel : MonoBehaviour
 {
-    CanvasGroup _canvasGroup;
-    public float _desiredFadeDuration = 3f;
+    private CanvasGroup _canvasGroup;
+    public float _desiredFadeDuration = 1f;
 
     void Start()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
-        //StartCoroutine(IEFadeOut());
-        //StartCoroutine(IEFadeIn());
-        StartCoroutine(IEFadeOutAndIn());
-    }
-
-    private IEnumerator IEFadeOutAndIn()
-    {
-        yield return IEFadeOut();
-        yield return IEFadeIn();
     }
 
     public IEnumerator IEFadeOut()
@@ -34,6 +25,7 @@ public class FadePanel : MonoBehaviour
             yield return null;
         }
     }
+
     public IEnumerator IEFadeIn()
     {
         float timer = 0f;
