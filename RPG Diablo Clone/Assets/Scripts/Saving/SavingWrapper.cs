@@ -11,6 +11,15 @@ namespace RPG.SaveManagement
         const string _defaultSaveFile = "save";
 
         // Update is called once per frame
+        IEnumerator Start()
+        {
+            FadePanel panel = FindObjectOfType<FadePanel>();
+            panel.FadeImmediately();
+            panel.IEFadeOut();
+
+            yield return GetComponent<SavingSystem>().LoadLastScene(_defaultSaveFile);
+        }
+
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.L))

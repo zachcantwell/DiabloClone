@@ -58,9 +58,10 @@ namespace RPG.SceneManagement
             wrapper.Load();
 
             // Load next LEvel Here
-
             Portal otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
+
+            wrapper.Save();
 
             yield return new WaitForSeconds(_waitTime);
             yield return fader.IEFadeOut();

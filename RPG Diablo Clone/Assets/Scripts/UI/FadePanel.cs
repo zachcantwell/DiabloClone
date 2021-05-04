@@ -13,6 +13,11 @@ public class FadePanel : MonoBehaviour
         _canvasGroup = GetComponent<CanvasGroup>();
     }
 
+    public void FadeImmediately()
+    {
+        _canvasGroup.alpha = 1f;
+    }
+
     public IEnumerator IEFadeOut()
     {
         float timer = 0f;
