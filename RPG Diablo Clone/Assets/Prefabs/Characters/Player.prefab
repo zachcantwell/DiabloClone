@@ -142,7 +142,12 @@ PrefabInstance:
     - target: {fileID: 8228164004769944304, guid: fb1d63530acb64440bdf3aa9a0ae1d91,
         type: 3}
       propertyPath: healthPoints
-      value: 35
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8784510762451081952, guid: fb1d63530acb64440bdf3aa9a0ae1d91,
+        type: 3}
+      propertyPath: uniqueIdentifier
+      value: player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb1d63530acb64440bdf3aa9a0ae1d91, type: 3}

@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using RPG.Core;
+using RPG.Saving;
+using RPG.SaveManagement;
 
 namespace RPG.SceneManagement
 {
@@ -48,7 +50,14 @@ namespace RPG.SceneManagement
             FadePanel fader = FindObjectOfType<FadePanel>();
             yield return fader.IEFadeIn();
 
+            // Save Currrent LEvel Here
+            SavingWrapper wrapper = FindObjectOfType<SavingWrapper>();
+            wrapper.Save();
+
             yield return SceneManager.LoadSceneAsync(_desiredScene);
+            wrapper.Load();
+
+            // Load next LEvel Here
 
             Portal otherPortal = GetOtherPortal();
             UpdatePlayer(otherPortal);
@@ -84,8 +93,10 @@ namespace RPG.SceneManagement
 
                 if (player != null)
                 {
-                    player.GetComponent<NavMeshAgent>().Warp(otherPortal._spawnPoint.position);
+                    player.GetComponent<NavMeshAgent>().enabled = false;
+                    player.transform.position = otherPortal._spawnPoint.position;
                     player.transform.rotation = otherPortal._spawnPoint.rotation;
+                    player.GetComponent<NavMeshAgent>().enabled = true;
                 }
             }
         }

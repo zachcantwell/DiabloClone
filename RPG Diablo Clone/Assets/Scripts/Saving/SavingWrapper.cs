@@ -23,13 +23,13 @@ namespace RPG.SaveManagement
             }
         }
 
-        private void Load()
+        public void Load()
         {
             // Call the Saving System and tell it to load
             GetComponent<SavingSystem>().Load(_defaultSaveFile);
         }
 
-        private void Save()
+        public void Save()
         {
             // Call the Saving System and tell it to load
             GetComponent<SavingSystem>().Save(_defaultSaveFile);
