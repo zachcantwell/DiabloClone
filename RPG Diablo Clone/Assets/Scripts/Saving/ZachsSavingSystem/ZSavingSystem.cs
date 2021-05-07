@@ -16,10 +16,8 @@ namespace RPG.Saving
             print("Saving to " + path);
             using (FileStream stream = File.Open(path, FileMode.Create))
             {
-                Transform playerTransform = GetPlayerTransform();
                 BinaryFormatter formatter = new BinaryFormatter();
-                ZSerializeableVector3 position = new ZSerializeableVector3(playerTransform.position);
-                formatter.Serialize(stream, position);
+                formatter.Serialize(stream, CaptureState());
             }
         }
 
@@ -29,36 +27,28 @@ namespace RPG.Saving
             print("loading from " + path);
             using (FileStream stream = File.Open(path, FileMode.Open))
             {
-                Transform playerTransfrom = GetPlayerTransform();
                 BinaryFormatter formatter = new BinaryFormatter();
-                SerializableVector3 position = (SerializableVector3)formatter.Deserialize(stream);
-                playerTransfrom.position = position.ToVector();
-                stream.Close();
+                RestoreState(formatter.Deserialize(stream));
             }
         }
 
-
-        private Transform GetPlayerTransform()
+        private object CaptureState()
         {
-            return GameObject.FindWithTag("Player").transform;
+            Dictionary<string, object> state = new Dictionary<string, object>();
+            foreach (ZSaveableEntity entity in FindObjectsOfType<ZSaveableEntity>())
+            {
+                state[entity.GetUniqueIdentifier()] = entity.CaptureState();
+            }
+            return state;
         }
 
-        private byte[] SerializeVector(Vector3 vector)
+        private void RestoreState(object state)
         {
-            byte[] vectorBytes = new byte[3 * 4];
-            BitConverter.GetBytes(vector.x).CopyTo(vectorBytes, 0);
-            BitConverter.GetBytes(vector.x).CopyTo(vectorBytes, 4);
-            BitConverter.GetBytes(vector.x).CopyTo(vectorBytes, 8);
-            return vectorBytes;
-        }
-
-        private Vector3 DeserializeVector(byte[] buffer)
-        {
-            Vector3 result = new Vector3();
-            result.x = BitConverter.ToSingle(buffer, 0);
-            result.y = BitConverter.ToSingle(buffer, 4);
-            result.z = BitConverter.ToSingle(buffer, 8);
-            return result;
+            Dictionary<string, object> stateDictionary = new Dictionary<string, object>();
+            foreach (ZSaveableEntity entity in FindObjectsOfType<ZSaveableEntity>())
+            {
+                entity.RestoreState(entity.GetUniqueIdentifier());
+            }
         }
 
         private string GetPathFromSaveFile(string saveFile)
