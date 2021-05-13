@@ -13,7 +13,7 @@ namespace RPG.Combat
             Fighter fighter = other.gameObject.GetComponent<Fighter>();
             Debug.Log("Fighter = " + fighter);
 
-            if (fighter)
+            if (fighter && other.GetComponent<PlayerController>())
             {
                 fighter.EquipWeapon(_weapon);
                 Destroy(this.gameObject);
