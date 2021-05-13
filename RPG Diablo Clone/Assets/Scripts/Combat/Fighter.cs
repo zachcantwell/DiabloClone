@@ -6,12 +6,9 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
-        [SerializeField] float weaponRange = 2f;
-        [SerializeField] float timeBetweenAttacks = 1f;
-        [SerializeField] float weaponDamage = 5f;
-        [SerializeField] GameObject _weaponPrefab = null;
+        [SerializeField] Weapon _weaponPrefab = null;
         [SerializeField] Transform _handTransform = null;
-
+        [SerializeField] AnimatorOverrideController _weaponOveride;
         Health target;
         float timeSinceLastAttack = Mathf.Infinity;
 
@@ -42,7 +39,7 @@ namespace RPG.Combat
         private void AttackBehaviour()
         {
             transform.LookAt(target.transform);
-            if (timeSinceLastAttack > timeBetweenAttacks)
+            if (timeSinceLastAttack > _weaponPrefab.GetTimeBetweenAttacks())
             {
                 // This will trigger the Hit() event.
                 TriggerAttack();
@@ -60,12 +57,12 @@ namespace RPG.Combat
         void Hit()
         {
             if (target == null) { return; }
-            target.TakeDamage(weaponDamage);
+            target.TakeDamage(_weaponPrefab.GetWeaponDamage());
         }
 
         private bool GetIsInRange()
         {
-            return Vector3.Distance(transform.position, target.transform.position) < weaponRange;
+            return Vector3.Distance(transform.position, target.transform.position) < _weaponPrefab.GetWeaponRange();
         }
 
         public bool CanAttack(GameObject combatTarget)
@@ -96,8 +93,11 @@ namespace RPG.Combat
 
         private void SpawnWeapon()
         {
-            Instantiate(_weaponPrefab, _handTransform);
-
+            if (!_weaponPrefab)
+            {
+                return;
+            }
+            _weaponPrefab.SpawnWeapon(_handTransform, GetComponent<Animator>());
         }
     }
 }
