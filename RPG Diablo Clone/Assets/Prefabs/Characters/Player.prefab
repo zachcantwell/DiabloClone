@@ -114,6 +114,17 @@ PrefabInstance:
       propertyPath: weaponRange
       value: 1.25
       objectReference: {fileID: 0}
+    - target: {fileID: 5227352601250442813, guid: fb1d63530acb64440bdf3aa9a0ae1d91,
+        type: 3}
+      propertyPath: _weaponPrefab
+      value: 
+      objectReference: {fileID: 188672130825678229, guid: 4e7312fd44c5bd641b27357a97c14933,
+        type: 3}
+    - target: {fileID: 5227352601250442813, guid: fb1d63530acb64440bdf3aa9a0ae1d91,
+        type: 3}
+      propertyPath: _handTransform
+      value: 
+      objectReference: {fileID: 4206622715477853881}
     - target: {fileID: 5227352601250442815, guid: fb1d63530acb64440bdf3aa9a0ae1d91,
         type: 3}
       propertyPath: m_Name
@@ -154,6 +165,12 @@ PrefabInstance:
 --- !u!1 &4206622715477517407 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5227352601250442815, guid: fb1d63530acb64440bdf3aa9a0ae1d91,
+    type: 3}
+  m_PrefabInstance: {fileID: 8280893126652938848}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4206622715477853881 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5227352601250155737, guid: fb1d63530acb64440bdf3aa9a0ae1d91,
     type: 3}
   m_PrefabInstance: {fileID: 8280893126652938848}
   m_PrefabAsset: {fileID: 0}
