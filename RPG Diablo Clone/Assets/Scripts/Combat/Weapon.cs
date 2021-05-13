@@ -33,7 +33,7 @@ namespace RPG.Combat
                 Instantiate(_equippedPrefab, handTransform);
             }
 
-            if (_animOverride)
+            if (animator && _animOverride)
             {
                 animator.runtimeAnimatorController = _animOverride;
             }

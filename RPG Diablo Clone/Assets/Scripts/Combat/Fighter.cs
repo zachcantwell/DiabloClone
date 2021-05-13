@@ -6,28 +6,29 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
-        [SerializeField] Weapon _weaponPrefab = null;
+        [SerializeField] Weapon _defaultWeapon = null;
         [SerializeField] Transform _handTransform = null;
         [SerializeField] AnimatorOverrideController _weaponOveride;
-        Health target;
+        Health targetsHealth;
+        Weapon _currentWeapon;
         float timeSinceLastAttack = Mathf.Infinity;
 
 
         void Start()
         {
-            SpawnWeapon();
+            EquipWeapon(_defaultWeapon);
         }
 
         private void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
 
-            if (target == null) return;
-            if (target.IsDead()) return;
+            if (targetsHealth == null) return;
+            if (targetsHealth.IsDead()) return;
 
             if (!GetIsInRange())
             {
-                GetComponent<Mover>().MoveTo(target.transform.position, 1f);
+                GetComponent<Mover>().MoveTo(targetsHealth.transform.position, 1f);
             }
             else
             {
@@ -38,8 +39,8 @@ namespace RPG.Combat
 
         private void AttackBehaviour()
         {
-            transform.LookAt(target.transform);
-            if (timeSinceLastAttack > _weaponPrefab.GetTimeBetweenAttacks())
+            transform.LookAt(targetsHealth.transform);
+            if (timeSinceLastAttack > _currentWeapon.GetTimeBetweenAttacks())
             {
                 // This will trigger the Hit() event.
                 TriggerAttack();
@@ -56,13 +57,23 @@ namespace RPG.Combat
         // Animation Event
         void Hit()
         {
-            if (target == null) { return; }
-            target.TakeDamage(_weaponPrefab.GetWeaponDamage());
+            if (targetsHealth == null)
+            {
+                return;
+            }
+            targetsHealth.TakeDamage(_currentWeapon.GetWeaponDamage());
         }
 
         private bool GetIsInRange()
         {
-            return Vector3.Distance(transform.position, target.transform.position) < _weaponPrefab.GetWeaponRange();
+            if (targetsHealth)
+            {
+                return Vector3.Distance(transform.position, targetsHealth.transform.position) < _currentWeapon.GetWeaponRange();
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool CanAttack(GameObject combatTarget)
@@ -75,13 +86,13 @@ namespace RPG.Combat
         public void Attack(GameObject combatTarget)
         {
             GetComponent<ActionScheduler>().StartAction(this);
-            target = combatTarget.GetComponent<Health>();
+            targetsHealth = combatTarget.GetComponent<Health>();
         }
 
         public void Cancel()
         {
             StopAttack();
-            target = null;
+            targetsHealth = null;
             GetComponent<Mover>().Cancel();
         }
 
@@ -91,13 +102,14 @@ namespace RPG.Combat
             GetComponent<Animator>().SetTrigger("stopAttack");
         }
 
-        private void SpawnWeapon()
+        public void EquipWeapon(Weapon weapon)
         {
-            if (!_weaponPrefab)
+            if (weapon == null)
             {
                 return;
             }
-            _weaponPrefab.SpawnWeapon(_handTransform, GetComponent<Animator>());
+            _currentWeapon = weapon;
+            _currentWeapon.SpawnWeapon(_handTransform, GetComponent<Animator>());
         }
     }
 }
