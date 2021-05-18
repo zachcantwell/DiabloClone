@@ -13,6 +13,7 @@ namespace RPG.Combat
         [SerializeField] private bool _canPursueTarget = false;
         [SerializeField] private Vector3? _targetPos = null;
         [SerializeField] private float _timeUntilDestroy = 10f;
+        [SerializeField] ParticleSystem _hitParticles = null;
         private float _timeSinceSpawn = 0f;
 
         void Start()
@@ -90,7 +91,15 @@ namespace RPG.Combat
                     {
                         return;
                     }
+
                     targetHealth.TakeDamage(_damage);
+
+                    if (_hitParticles)
+                    {
+                        ParticleSystem particles = Instantiate(_hitParticles, transform.position, Quaternion.identity);
+                        particles.Play();
+                    }
+
                     Destroy(this.gameObject);
                 }
             }
