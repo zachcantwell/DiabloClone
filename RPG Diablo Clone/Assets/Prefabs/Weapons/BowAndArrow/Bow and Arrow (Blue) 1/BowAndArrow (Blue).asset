@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59a78546738021d42a55ded4f2b68fe3, type: 3}
-  m_Name: BowAndArrow
+  m_Name: BowAndArrow (Blue)
   m_EditorClassIdentifier: 
   _animOverride: {fileID: 22100000, guid: 53e4477cd1da16043a541be47b05ebc1, type: 2}
   _equippedPrefab: {fileID: 1563655986059756, guid: 7f105c0c272e6c146b4b41cdc53ea356,
     type: 3}
-  _projectile: {fileID: 4033074915597990020, guid: f42dd102f766dc54fbcee34c57bc30bc,
+  _projectile: {fileID: 4033074915597990020, guid: 12c3201a3efb5c1468e9f7fcaf0c67b1,
     type: 3}
-  weaponRange: 9
+  weaponRange: 12
   weaponDamage: 5
   timeBetweenAttacks: 2
   _isRightHanded: 0

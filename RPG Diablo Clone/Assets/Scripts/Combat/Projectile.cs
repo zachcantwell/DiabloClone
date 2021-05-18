@@ -10,6 +10,8 @@ namespace RPG.Combat
         [SerializeField] private Health _target;
         [SerializeField] private float _projectileSpeed = 2f;
         [SerializeField] private float _damage = 1f;
+        [SerializeField] private bool _canPursueTarget = false;
+        [SerializeField] private Vector3? _targetPos = null;
 
         void Update()
         {
@@ -34,11 +36,17 @@ namespace RPG.Combat
 
                 if (collider)
                 {
-                    return collider.bounds.center;
-                }
-                else
-                {
-                    return _target.transform.position;
+                    // _canPursueTarget means the projectile is heat seaking!
+                    if (_canPursueTarget)
+                    {
+                        _targetPos = collider.bounds.center;
+                    }
+                    // This makes it so the projectile fires to the target position Without heatseaking!
+                    else if (_targetPos == null)
+                    {
+                        _targetPos = collider.transform.position;
+                    }
+                    return _targetPos.Value;
                 }
             }
             return Vector3.zero;
