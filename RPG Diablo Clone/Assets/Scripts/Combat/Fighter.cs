@@ -62,7 +62,20 @@ namespace RPG.Combat
             {
                 return;
             }
-            targetsHealth.TakeDamage(_currentWeapon.GetWeaponDamage());
+
+            if (_currentWeapon.HasProjectile())
+            {
+                _currentWeapon.LaunchProjectile(_rightHandTransform, _leftHandTransform, targetsHealth);
+            }
+            else
+            {
+                targetsHealth.TakeDamage(_currentWeapon.GetWeaponDamage());
+            }
+        }
+
+        void Shoot()
+        {
+            Hit();
         }
 
         private bool GetIsInRange()
