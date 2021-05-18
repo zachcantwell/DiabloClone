@@ -12,13 +12,39 @@ namespace RPG.Combat
         [SerializeField] private float _damage = 1f;
         [SerializeField] private bool _canPursueTarget = false;
         [SerializeField] private Vector3? _targetPos = null;
+        [SerializeField] private float _timeUntilDestroy = 10f;
+        private float _timeSinceSpawn = 0f;
+
+        void Start()
+        {
+            transform.LookAt(GetAimLocation(), Vector3.up);
+        }
 
         void Update()
         {
+            MoveProjectile();
+            SelfDestructionTimer();
+        }
+
+        private void MoveProjectile()
+        {
             if (_target != null)
             {
-                transform.LookAt(GetAimLocation(), Vector3.up);
+                Vector3 targetPosition = GetAimLocation();
+                if (_canPursueTarget && _target.IsDead() == false)
+                {
+                    transform.LookAt(targetPosition, Vector3.up);
+                }
                 transform.Translate(transform.forward * _projectileSpeed * Time.deltaTime, Space.World);
+            }
+        }
+
+        private void SelfDestructionTimer()
+        {
+            _timeSinceSpawn += Time.deltaTime;
+            if (_timeSinceSpawn > _timeUntilDestroy)
+            {
+                Destroy(this.gameObject);
             }
         }
 
@@ -30,26 +56,16 @@ namespace RPG.Combat
 
         private Vector3 GetAimLocation()
         {
+            CapsuleCollider collider = _target.GetComponent<CapsuleCollider>();
+
             if (_target != null)
             {
-                CapsuleCollider collider = _target.GetComponent<CapsuleCollider>();
-
-                if (collider)
+                if (collider == null)
                 {
-                    // _canPursueTarget means the projectile is heat seaking!
-                    if (_canPursueTarget)
-                    {
-                        _targetPos = collider.bounds.center;
-                    }
-                    // This makes it so the projectile fires to the target position Without heatseaking!
-                    else if (_targetPos == null)
-                    {
-                        _targetPos = collider.transform.position;
-                    }
-                    return _targetPos.Value;
+                    return _target.transform.position;
                 }
             }
-            return Vector3.zero;
+            return _target.transform.position + Vector3.up * collider.height / 2;
         }
 
         void OnTriggerEnter(Collider other)
@@ -60,6 +76,10 @@ namespace RPG.Combat
 
                 if (targetHealth)
                 {
+                    if (targetHealth.IsDead())
+                    {
+                        return;
+                    }
                     targetHealth.TakeDamage(_damage);
                     Destroy(this.gameObject);
                 }

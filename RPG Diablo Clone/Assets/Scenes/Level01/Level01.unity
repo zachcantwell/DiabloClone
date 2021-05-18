@@ -3668,7 +3668,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.78125, y: 1}
+    m_SensorSize: {x: 2, y: 1}
   m_Transitions:
     m_BlendHint: 3
     m_InheritPosition: 0
@@ -3766,7 +3766,7 @@ Camera:
   m_projectionMatrixMode: 2
   m_GateFitMode: 2
   m_FOVAxisMode: 0
-  m_SensorSize: {x: 1.78125, y: 1}
+  m_SensorSize: {x: 2, y: 1}
   m_LensShift: {x: 0, y: 0}
   m_FocalLength: 1.0138997
   m_NormalizedViewPortRect:

@@ -13,6 +13,7 @@ namespace RPG.Combat
         [SerializeField] float weaponDamage = Mathf.Epsilon;
         [SerializeField] float timeBetweenAttacks = Mathf.Epsilon;
         [SerializeField] bool _isRightHanded = true;
+        const string _weaponName = "Weapon";
 
         public float GetWeaponDamage()
         {
@@ -48,6 +49,22 @@ namespace RPG.Combat
             return _projectile != null;
         }
 
+        private void DestroyOldWeapon(Transform rightHand, Transform leftHand)
+        {
+            Transform oldWeapon = rightHand.Find(_weaponName);
+            if (oldWeapon == null)
+            {
+                oldWeapon = leftHand.Find(_weaponName);
+            }
+            if (oldWeapon == null)
+            {
+                return;
+            }
+
+            oldWeapon.name = "DESTROYING";
+            Destroy(oldWeapon.gameObject);
+        }
+
         public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target)
         {
             Projectile projectileInstance = Instantiate(_projectile, GetTransform(rightHand, leftHand).position, Quaternion.identity);
@@ -56,9 +73,12 @@ namespace RPG.Combat
 
         public void SpawnWeapon(Transform rightHandTransform, Transform leftHandTransform, Animator animator)
         {
+            DestroyOldWeapon(rightHandTransform, leftHandTransform);
+
             if (_equippedPrefab)
             {
-                Instantiate(_equippedPrefab, GetTransform(rightHandTransform, leftHandTransform));
+                GameObject newWeapon = Instantiate(_equippedPrefab, GetTransform(rightHandTransform, leftHandTransform));
+                newWeapon.name = _weaponName;
             }
 
             if (animator && _animOverride)

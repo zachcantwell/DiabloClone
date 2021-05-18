@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
-  _projectileSpeed: 7
+  _projectileSpeed: 8
   _damage: 4
   _canPursueTarget: 0
 --- !u!65 &6060842767942909129
@@ -150,7 +150,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.2
+  m_Time: 0.125
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.05
