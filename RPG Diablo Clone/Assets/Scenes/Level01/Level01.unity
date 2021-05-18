@@ -1073,6 +1073,7 @@ Transform:
   m_Children:
   - {fileID: 1730464695}
   - {fileID: 1533239936}
+  - {fileID: 1760477610}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4432,6 +4433,81 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &1760477609
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 742832877}
+    m_Modifications:
+    - target: {fileID: 4015523362730062325, guid: 4f8d9394178c57b498f364bd5805e622,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.4760437
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015523362730062325, guid: 4f8d9394178c57b498f364bd5805e622,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015523362730062325, guid: 4f8d9394178c57b498f364bd5805e622,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.9606285
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015523362730062325, guid: 4f8d9394178c57b498f364bd5805e622,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015523362730062325, guid: 4f8d9394178c57b498f364bd5805e622,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015523362730062325, guid: 4f8d9394178c57b498f364bd5805e622,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015523362730062325, guid: 4f8d9394178c57b498f364bd5805e622,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015523362730062325, guid: 4f8d9394178c57b498f364bd5805e622,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015523362730062325, guid: 4f8d9394178c57b498f364bd5805e622,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015523362730062325, guid: 4f8d9394178c57b498f364bd5805e622,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4015523362730062325, guid: 4f8d9394178c57b498f364bd5805e622,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962371902251680269, guid: 4f8d9394178c57b498f364bd5805e622,
+        type: 3}
+      propertyPath: m_Name
+      value: FireballPickup
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4f8d9394178c57b498f364bd5805e622, type: 3}
+--- !u!4 &1760477610 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4015523362730062325, guid: 4f8d9394178c57b498f364bd5805e622,
+    type: 3}
+  m_PrefabInstance: {fileID: 1760477609}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1772300854
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -17,7 +17,10 @@ namespace RPG.Combat
 
         void Start()
         {
-            transform.LookAt(GetAimLocation(), Vector3.up);
+            if (_target)
+            {
+                transform.LookAt(GetAimLocation(), Vector3.up);
+            }
         }
 
         void Update()
@@ -56,20 +59,27 @@ namespace RPG.Combat
 
         private Vector3 GetAimLocation()
         {
-            CapsuleCollider collider = _target.GetComponent<CapsuleCollider>();
-
-            if (_target != null)
+            if (_target == null)
             {
-                if (collider == null)
-                {
-                    return _target.transform.position;
-                }
+                return Vector3.zero;
             }
+
+            CapsuleCollider collider = _target.GetComponent<CapsuleCollider>();
+            if (collider == null)
+            {
+                return _target.transform.position;
+            }
+
             return _target.transform.position + Vector3.up * collider.height / 2;
         }
 
         void OnTriggerEnter(Collider other)
         {
+            if (_target == null)
+            {
+                return;
+            }
+
             if (other.transform == _target.transform)
             {
                 Health targetHealth = other.GetComponent<Health>();
