@@ -10,6 +10,7 @@ namespace RPG.Combat
         [SerializeField] float weaponRange = Mathf.Epsilon;
         [SerializeField] float weaponDamage = Mathf.Epsilon;
         [SerializeField] float timeBetweenAttacks = Mathf.Epsilon;
+        [SerializeField] bool _isRightHanded = true;
 
         public float GetWeaponDamage()
         {
@@ -26,11 +27,19 @@ namespace RPG.Combat
             return timeBetweenAttacks;
         }
 
-        public void SpawnWeapon(Transform handTransform, Animator animator)
+        public void SpawnWeapon(Transform rightHandTransform, Transform leftHandTransform, Animator animator)
         {
+
             if (_equippedPrefab)
             {
-                Instantiate(_equippedPrefab, handTransform);
+                if (_isRightHanded)
+                {
+                    Instantiate(_equippedPrefab, rightHandTransform);
+                }
+                else
+                {
+                    Instantiate(_equippedPrefab, leftHandTransform);
+                }
             }
 
             if (animator && _animOverride)

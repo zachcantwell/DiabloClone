@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1874630883451416055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4356359359987795375}
+  m_Layer: 0
+  m_Name: LeftEquippedWeaponTransform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4356359359987795375
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874630883451416055}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5227352601250229425}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5227352601250245399
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +120,7 @@ Transform:
   m_Children:
   - {fileID: 5227352601250153651}
   m_Father: {fileID: 5227352601250229425}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5227352601250246837
 GameObject:
@@ -822,6 +852,7 @@ Transform:
   m_LocalPosition: {x: -0.27114528, y: 0, z: -0.00038136425}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4356359359987795375}
   - {fileID: 5227352601250216053}
   - {fileID: 5227352601250160995}
   - {fileID: 5227352601250214529}
@@ -1051,8 +1082,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff016ca6983f1949bab352c9e9bcde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponPrefab: {fileID: 11400000, guid: ed7c7e2a4b0975548852500547b19b94, type: 2}
-  _handTransform: {fileID: 5227352601250155737}
+  _defaultWeapon: {fileID: 0}
+  _rightHandTransform: {fileID: 1959443214980163069}
+  _leftHandTransform: {fileID: 4356359359987795375}
   _weaponOveride: {fileID: 22100000, guid: 07ec84a4efe14fe42ac58055ed608bec, type: 2}
 --- !u!114 &5227352601250442814
 MonoBehaviour:
@@ -1685,7 +1717,7 @@ Transform:
   m_Children:
   - {fileID: 5227352601250140037}
   m_Father: {fileID: 5227352601250229425}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5227352601250470619
 GameObject:
@@ -2196,7 +2228,7 @@ Transform:
   m_Children:
   - {fileID: 5227352601250188719}
   m_Father: {fileID: 5227352601250229425}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5227352601250484941
 GameObject:
@@ -2418,7 +2450,7 @@ PrefabInstance:
     - target: {fileID: 6615804482793918149, guid: df57b4a1bb5cba044addc99273334887,
         type: 3}
       propertyPath: m_Name
-      value: EquippedWeaponTransform
+      value: RightEquippedWeaponTransform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df57b4a1bb5cba044addc99273334887, type: 3}
