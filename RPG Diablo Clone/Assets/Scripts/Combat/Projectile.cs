@@ -8,13 +8,13 @@ namespace RPG.Combat
     public class Projectile : MonoBehaviour
     {
         [SerializeField] private Health _target;
+        [SerializeField] private GameObject[] _destroyOnHit;
         [SerializeField] private float _projectileSpeed = 2f;
         [SerializeField] private float _damage = 1f;
         [SerializeField] private bool _canPursueTarget = false;
         [SerializeField] private Vector3? _targetPos = null;
-        [SerializeField] private float _timeUntilDestroy = 10f;
+        [SerializeField] private float _timeUntilDestroy = 0f;
         [SerializeField] ParticleSystem _hitParticles = null;
-        private float _timeSinceSpawn = 0f;
 
         void Start()
         {
@@ -27,7 +27,6 @@ namespace RPG.Combat
         void Update()
         {
             MoveProjectile();
-            SelfDestructionTimer();
         }
 
         private void MoveProjectile()
@@ -40,15 +39,6 @@ namespace RPG.Combat
                     transform.LookAt(targetPosition, Vector3.up);
                 }
                 transform.Translate(transform.forward * _projectileSpeed * Time.deltaTime, Space.World);
-            }
-        }
-
-        private void SelfDestructionTimer()
-        {
-            _timeSinceSpawn += Time.deltaTime;
-            if (_timeSinceSpawn > _timeUntilDestroy)
-            {
-                Destroy(this.gameObject);
             }
         }
 
@@ -87,6 +77,8 @@ namespace RPG.Combat
 
                 if (targetHealth)
                 {
+                    _projectileSpeed = 0f;
+
                     if (targetHealth.IsDead())
                     {
                         return;
@@ -100,7 +92,18 @@ namespace RPG.Combat
                         particles.Play();
                     }
 
-                    Destroy(this.gameObject);
+                    foreach (GameObject gobj in _destroyOnHit)
+                    {
+                        Destroy(gobj);
+                    }
+
+                    ParticleSystem particleSystem = GetComponentInChildren<ParticleSystem>();
+                    if (particleSystem)
+                    {
+                        particleSystem.transform.SetParent(null);
+                    }
+
+                    Destroy(this.gameObject, _timeUntilDestroy);
                 }
             }
         }

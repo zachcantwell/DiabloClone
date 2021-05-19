@@ -28,8 +28,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.05, y: -0.375, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_Children:
-  - {fileID: 3829504693781134445}
+  m_Children: []
   m_Father: {fileID: 4015523362730062325}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -105,12 +104,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6522582841707742003}
-  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
+  m_LocalPosition: {x: 0.05, y: -0.125, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
-  m_Father: {fileID: 4673735478776688767}
-  m_RootOrder: 0
+  m_Father: {fileID: 4015523362730062325}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!198 &5084296948143020827
 ParticleSystem:
@@ -4865,6 +4864,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4673735478776688767}
+  - {fileID: 3829504693781134445}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4881,10 +4881,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 0}
+  _destroyOnHit:
+  - {fileID: 4668390380899086133}
   _projectileSpeed: 5
   _damage: 10
   _canPursueTarget: 1
-  _timeUntilDestroy: 15
+  _timeUntilDestroy: 0
   _hitParticles: {fileID: 6551253153487211145, guid: 05b66e5375314c34a9a9728122bcb804,
     type: 3}
 --- !u!65 &3330198822995674323
