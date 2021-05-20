@@ -1082,10 +1082,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ff016ca6983f1949bab352c9e9bcde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _defaultWeapon: {fileID: 0}
+  _weaponOveride: {fileID: 22100000, guid: 07ec84a4efe14fe42ac58055ed608bec, type: 2}
   _rightHandTransform: {fileID: 1959443214980163069}
   _leftHandTransform: {fileID: 4356359359987795375}
-  _weaponOveride: {fileID: 22100000, guid: 07ec84a4efe14fe42ac58055ed608bec, type: 2}
+  _defaultWeapon: {fileID: 11400000, guid: 61255a5488b486e4d9f03b1fed3dc612, type: 2}
 --- !u!114 &5227352601250442814
 MonoBehaviour:
   m_ObjectHideFlags: 0

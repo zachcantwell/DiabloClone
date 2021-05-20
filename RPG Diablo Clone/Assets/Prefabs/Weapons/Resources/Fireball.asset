@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59a78546738021d42a55ded4f2b68fe3, type: 3}
-  m_Name: FireballWeapon
+  m_Name: Fireball
   m_EditorClassIdentifier: 
   _animOverride: {fileID: 22100000, guid: 594ab030266a9e94ea5b11c1f8fdf838, type: 2}
-  _equippedPrefab: {fileID: 8962371902251680269, guid: 4f8d9394178c57b498f364bd5805e622,
+  _equippedPrefab: {fileID: 8962371902251680269, guid: 7b4f724c681d9e2478fed0712cb5b640,
     type: 3}
   _projectile: {fileID: 5607845792119128222, guid: 7b4f724c681d9e2478fed0712cb5b640,
     type: 3}

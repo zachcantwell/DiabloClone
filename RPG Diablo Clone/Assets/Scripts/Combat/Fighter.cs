@@ -1,24 +1,27 @@
 ﻿using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
+using RPG.Saving;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] AnimatorOverrideController _weaponOveride;
         [SerializeField] Transform _rightHandTransform = null;
         [SerializeField] Transform _leftHandTransform = null;
-        [SerializeField] string _defaultWeaponName = "Unarmed";
+        [SerializeField] Weapon _defaultWeapon;
+        Weapon _currentWeapon = null;
         Health targetsHealth;
-        Weapon _currentWeapon;
         float timeSinceLastAttack = Mathf.Infinity;
 
 
         void Start()
         {
-            Weapon defaultWeapon = Resources.Load<Weapon>(_defaultWeaponName);
-            EquipWeapon(defaultWeapon);
+            if (_currentWeapon == null)
+            {
+                EquipWeapon(_defaultWeapon);
+            }
         }
 
         private void Update()
@@ -81,7 +84,7 @@ namespace RPG.Combat
 
         private bool GetIsInRange()
         {
-            if (targetsHealth)
+            if (targetsHealth && _currentWeapon)
             {
                 return Vector3.Distance(transform.position, targetsHealth.transform.position) < _currentWeapon.GetWeaponRange();
             }
@@ -125,6 +128,18 @@ namespace RPG.Combat
             }
             _currentWeapon = weapon;
             _currentWeapon.SpawnWeapon(_rightHandTransform, _leftHandTransform, GetComponent<Animator>());
+        }
+
+        public object CaptureState()
+        {
+            return _currentWeapon.name;
+        }
+
+        public void RestoreState(object state)
+        {
+            string weaponName = (string)state;
+            Weapon weapon = Resources.Load<Weapon>(weaponName);
+            EquipWeapon(weapon);
         }
     }
 }

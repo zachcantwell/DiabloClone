@@ -82,6 +82,12 @@ PrefabInstance:
       propertyPath: weaponRange
       value: 1.1
       objectReference: {fileID: 0}
+    - target: {fileID: 1065143663373224230, guid: 19550fddcef4e0b408f13fd21bbbb849,
+        type: 3}
+      propertyPath: _defaultWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: ed7c7e2a4b0975548852500547b19b94,
+        type: 2}
     - target: {fileID: 1065143663373224231, guid: 19550fddcef4e0b408f13fd21bbbb849,
         type: 3}
       propertyPath: _maxNavSpeed
