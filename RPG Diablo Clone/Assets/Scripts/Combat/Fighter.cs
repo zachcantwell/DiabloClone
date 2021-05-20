@@ -6,10 +6,10 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
-        [SerializeField] Weapon _defaultWeapon = null;
+        [SerializeField] AnimatorOverrideController _weaponOveride;
         [SerializeField] Transform _rightHandTransform = null;
         [SerializeField] Transform _leftHandTransform = null;
-        [SerializeField] AnimatorOverrideController _weaponOveride;
+        [SerializeField] string _defaultWeaponName = "Unarmed";
         Health targetsHealth;
         Weapon _currentWeapon;
         float timeSinceLastAttack = Mathf.Infinity;
@@ -17,7 +17,8 @@ namespace RPG.Combat
 
         void Start()
         {
-            EquipWeapon(_defaultWeapon);
+            Weapon defaultWeapon = Resources.Load<Weapon>(_defaultWeaponName);
+            EquipWeapon(defaultWeapon);
         }
 
         private void Update()

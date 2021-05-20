@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59a78546738021d42a55ded4f2b68fe3, type: 3}
-  m_Name: Unarmed
+  m_Name: LongSword
   m_EditorClassIdentifier: 
-  _animOverride: {fileID: 0}
-  _equippedPrefab: {fileID: 0}
-  weaponRange: 1
-  weaponDamage: 1
-  timeBetweenAttacks: 1
+  _animOverride: {fileID: 22100000, guid: 07ec84a4efe14fe42ac58055ed608bec, type: 2}
+  _equippedPrefab: {fileID: 188672130825678229, guid: 4e7312fd44c5bd641b27357a97c14933,
+    type: 3}
+  _projectile: {fileID: 0}
+  weaponRange: 2
+  weaponDamage: 4
+  timeBetweenAttacks: 1.5
+  _isRightHanded: 1

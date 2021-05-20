@@ -1334,6 +1334,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (Archer)
       objectReference: {fileID: 0}
+    - target: {fileID: 8027065992917163851, guid: 448ae643bbdaab04c9a753efe025909b,
+        type: 3}
+      propertyPath: _defaultWeaponName
+      value: BowAndArrow (Blue)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8027065992917163851, guid: 448ae643bbdaab04c9a753efe025909b,
+        type: 3}
+      propertyPath: _defaultWeapon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8027065992917438769, guid: 448ae643bbdaab04c9a753efe025909b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1983,6 +1993,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1972958060}
     m_Modifications:
+    - target: {fileID: 4206622715477517405, guid: fcb6c02a5035e984991a65621095e829,
+        type: 3}
+      propertyPath: _weaponOveride
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4206622715477517407, guid: fcb6c02a5035e984991a65621095e829,
         type: 3}
       propertyPath: m_Name
@@ -2094,6 +2109,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: ed7c7e2a4b0975548852500547b19b94,
         type: 2}
+    - target: {fileID: 8893079246184502871, guid: 36ee369dc6798bc4f9da17a2268a7e39,
+        type: 3}
+      propertyPath: _defaultWeaponName
+      value: LongSword
+      objectReference: {fileID: 0}
     - target: {fileID: 8893079246184645019, guid: 36ee369dc6798bc4f9da17a2268a7e39,
         type: 3}
       propertyPath: m_LocalRotation.x
