@@ -30,6 +30,11 @@ namespace RPG.Combat
             return timeBetweenAttacks;
         }
 
+        public void SetAttackMultiplier(int multiplier)
+        {
+            weaponDamage *= multiplier;
+        }
+
         public Transform GetTransform(Transform right, Transform left)
         {
             Transform hand = null;

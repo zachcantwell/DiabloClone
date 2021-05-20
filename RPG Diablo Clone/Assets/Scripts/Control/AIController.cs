@@ -25,14 +25,15 @@ namespace RPG.Control
         float timeSinceLastSawPlayer = Mathf.Infinity;
         float timeSinceArriveAtWaypoint = Mathf.Infinity;
         float maxDwellTime = 2f;
-        [SerializeField][Range(0,1)] float _moveSpeed = 0.4f;
-        
+        [SerializeField] [Range(0, 1)] float _moveSpeed = 0.4f;
+
         int currentWaypointIndex = 0;
 
 
-        private NavMeshAgent _navMeshAgent;  
+        private NavMeshAgent _navMeshAgent;
 
-        private void Start() {
+        private void Start()
+        {
             _navMeshAgent = GetComponent<NavMeshAgent>();
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
@@ -76,16 +77,16 @@ namespace RPG.Control
             if (patrolPath != null)
             {
                 if (AtWaypoint())
-                {   
+                {
                     timeSinceArriveAtWaypoint = 0f;
                     CycleWaypoint();
                 }
                 nextPosition = GetCurrentWaypoint();
             }
 
-            if(timeSinceArriveAtWaypoint > maxDwellTime)
+            if (timeSinceArriveAtWaypoint > maxDwellTime)
             {
-                mover.StartMoveAction(nextPosition, _moveSpeed );
+                mover.StartMoveAction(nextPosition, _moveSpeed);
             }
         }
 
@@ -122,7 +123,8 @@ namespace RPG.Control
         }
 
         // Called by Unity
-        private void OnDrawGizmosSelected() {
+        private void OnDrawGizmosSelected()
+        {
             Gizmos.color = Color.blue;
             Gizmos.DrawWireSphere(transform.position, chaseDistance);
         }

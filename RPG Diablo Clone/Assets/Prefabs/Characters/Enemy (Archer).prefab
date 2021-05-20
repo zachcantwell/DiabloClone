@@ -94,6 +94,11 @@ PrefabInstance:
       propertyPath: _maxNavSpeed
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 6831232100271111111, guid: 19550fddcef4e0b408f13fd21bbbb849,
+        type: 3}
+      propertyPath: _characterClass
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7823287856363571342, guid: 19550fddcef4e0b408f13fd21bbbb849,
         type: 3}
       propertyPath: _moveSpeed

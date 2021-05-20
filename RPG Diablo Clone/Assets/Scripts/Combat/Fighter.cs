@@ -11,6 +11,7 @@ namespace RPG.Combat
         [SerializeField] Transform _rightHandTransform = null;
         [SerializeField] Transform _leftHandTransform = null;
         [SerializeField] Weapon _defaultWeapon;
+        [SerializeField] private int _attackLevel = 1;
         Weapon _currentWeapon = null;
         Health targetsHealth;
         float timeSinceLastAttack = Mathf.Infinity;
@@ -73,13 +74,19 @@ namespace RPG.Combat
             }
             else
             {
-                targetsHealth.TakeDamage(_currentWeapon.GetWeaponDamage());
+                Debug.Log("Weapon Damage = " + _currentWeapon.GetWeaponDamage().ToString() + " * attackLevel = " + (_currentWeapon.GetWeaponDamage() * _attackLevel).ToString());
+                targetsHealth.TakeDamage(_currentWeapon.GetWeaponDamage() * _attackLevel);
             }
         }
 
         void Shoot()
         {
             Hit();
+        }
+
+        public void SetAttackLevelMultiplier(int level)
+        {
+            _attackLevel = level;
         }
 
         private bool GetIsInRange()
