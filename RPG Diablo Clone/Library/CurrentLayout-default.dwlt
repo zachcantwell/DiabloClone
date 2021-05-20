@@ -114,7 +114,7 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 1
-  controlID: 136
+  controlID: 140
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_MinSize: {x: 709, y: 492}
   m_MaxSize: {x: 18004, y: 14042}
   vertical: 0
-  controlID: 137
+  controlID: 141
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_MinSize: {x: 433, y: 492}
   m_MaxSize: {x: 14003, y: 14042}
   vertical: 1
-  controlID: 138
+  controlID: 142
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -186,10 +186,10 @@ MonoBehaviour:
     y: 0
     width: 1065
     height: 364
-  m_MinSize: {x: 403, y: 221}
-  m_MaxSize: {x: 8003, y: 4021}
+  m_MinSize: {x: 402, y: 221}
+  m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
-  controlID: 139
+  controlID: 143
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -207,10 +207,10 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 395
+    width: 386
     height: 364
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -232,9 +232,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 395
+    x: 386
     y: 0
-    width: 670
+    width: 679
     height: 364
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_MinSize: {x: 433, y: 271}
   m_MaxSize: {x: 14003, y: 10021}
   vertical: 0
-  controlID: 182
+  controlID: 95
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -345,8 +345,8 @@ MonoBehaviour:
     y: 0
     width: 301
     height: 635
-  m_MinSize: {x: 276, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 25}
   m_Panes:
   - {fileID: 25}
@@ -443,26 +443,26 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
-    width: 394
+    width: 385
     height: 343
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 1246}
-      m_SelectedIDs: 5c680100
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 5a59fdff36a4ffffc0d8ffff94f7ffff96f7ffff9af7ffff9cf7ffff9ef7ffffa0f7ffffa2f7ffffa4f7ffffaaf7ffffacf7ffffc0f7ffffc6f7ffffcaf7ffffccf7ffffd0f7ffffd4f7ffffd6f7ffffdaf7ffffdcf7ffffe2f7ffffe4f7ffffe6f7ffffe8f7ffffeaf7ffffecf7ffffeef7fffffaf7fffffcf7fffffef7ffff00f8ffff02f8ffff04f8ffff06f8ffff1af8ffff1ef8ffff20f8ffff22f8ffff2ef8ffff3cf8ffff4cf8ffffdef8ffffe0f8ffffe2f8ffffe4f8ffffe6f8ffffe8f8ffffeaf8ffffecf8ffffeef8fffff4f8fffffef8ffff04f9ffff12f9ffff14f9ffff16f9ffff1af9ffff1cf9ffff20f9ffff22f9ffff26f9ffff28f9ffff2af9ffff2cf9ffff2ef9ffff30f9ffff36f9ffff38f9ffff3af9ffff3cf9ffff3ef9ffff40f9ffff42f9ffff44f9ffff60f9ffff64f9ffff66f9ffff6af9ffff72f9ffff7cf9fffff4f9fffff6f9fffffcf9fffffef9ffff00faffff08faffff0afaffff0cfaffff18faffff24faffff38faffff3cfaffff46faffff48faffff4afaffff52faffff54faffff56faffff58faffff66faffff68faffff6afaffff6cfaffff6efaffff70faffff72faffff88faffff92faffff94faffff96faffff98faffff9afaffff9cfaffff9efaffffb4faffffb6faffffb8faffffbafaffffcefafffff0fafffffcfaffff2afbffff4efbffff6afbffff6efbffff98350000a4350000a8350000ce350000e0350000ea35000000360000123600001c36000082360000a4360000
+      m_ExpandedIDs: 1e73ffffa88fffffc08fffff2afaffff30faffff34faffff46faffff4efaffff50faffff60faffff62faffff66faffff6afaffffccfaffffe4fafffff0faffff6efbfffff8350000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Enemy (Archer)
-        m_OriginalName: Enemy (Archer)
+        m_Name: Particle System
+        m_OriginalName: Particle System
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -210674
+        m_UserData: 13858
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -496,9 +496,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 395
+    x: 386
     y: 73
-    width: 668
+    width: 677
     height: 343
   m_ViewDataDictionary: {fileID: 0}
   m_ShowContextualTools: 0
@@ -511,9 +511,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 7.4444423, y: 2.6553001, z: 5.9045777}
+    m_Target: {x: 0, y: 0, z: 0}
     speed: 2
-    m_Value: {x: 7.4444423, y: 2.6553001, z: 5.9045777}
+    m_Value: {x: 0, y: 0, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -559,13 +559,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.325
   m_Rotation:
-    m_Target: {x: -0.26338336, y: -0.056688596, z: 0.015505964, w: -0.9629008}
+    m_Target: {x: -0.40682572, y: 0.09671869, z: -0.043366138, w: -0.90733707}
     speed: 2
-    m_Value: {x: -0.263383, y: -0.05668852, z: 0.015505943, w: -0.96289957}
+    m_Value: {x: -0.40682513, y: 0.09671855, z: -0.043366075, w: -0.90733576}
   m_Size:
-    m_Target: 7.95259
+    m_Target: 3.6515057
     speed: 2
-    m_Value: 7.95259
+    m_Value: 3.6515057
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -716,7 +716,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -187128
+  m_LastSelectedObjectID: 20372
 --- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -756,34 +756,34 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Weapons/BowAndArrow/Bow and Arrow (White)
+    - Assets/Prefabs/Weapons/Fireball
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefabs/Weapons/BowAndArrow/Bow and Arrow (White)
+  - Assets/Prefabs/Weapons/Fireball
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Zach\Documents\GitHub\DiabloClone\RPG Diablo Clone
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 623}
-    m_SelectedIDs: 58680100
-    m_LastClickedID: 92248
-    m_ExpandedIDs: 000000009e3c0000a03c0000a23c0000a43c0000b43c0000ba3c0000cc3c0000f03c00004c4000005440000082aa000056e4000000ca9a3b
+    scrollPos: {x: 0, y: 674}
+    m_SelectedIDs: 403f0000
+    m_LastClickedID: 16192
+    m_ExpandedIDs: 00000000b63e0000b83e0000ba3e0000bc3e0000be3e0000c03e0000c23e0000c43e0000c63e0000c83e0000ca3e0000383f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Bow and Arrow (Red)
-      m_OriginalName: Bow and Arrow (Red)
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 92244
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 12}
     m_SearchString: 
@@ -797,7 +797,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000009e3c0000a03c0000a23c0000a43c0000a63c0000
+    m_ExpandedIDs: 00000000b63e0000b83e0000ba3e0000bc3e0000be3e0000c03e0000c23e0000c43e0000c63e0000c83e0000ca3e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1126,7 +1126,7 @@ MonoBehaviour:
     m_PrefName: Preview_InspectorPreview
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 1072
+  m_LastVerticalScrollValue: 0
 --- !u!114 &26
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1187,29 +1187,4 @@ MonoBehaviour:
     y: 73
     width: 300
     height: 614
-  m_ViewDataDictionary: {fileID: 0}
---- !u!114 &28
-MonoBehaviour:
-  m_ObjectHideFlags: 52
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 12059, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEditor:UnityEditor.Experimental.TerrainAPI:PaintTextureTool
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_TitleContent:
-    m_Text: Failed to load
-    m_Image: {fileID: 0}
-    m_Tooltip: 
-  m_Pos:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 320
-    height: 550
   m_ViewDataDictionary: {fileID: 0}

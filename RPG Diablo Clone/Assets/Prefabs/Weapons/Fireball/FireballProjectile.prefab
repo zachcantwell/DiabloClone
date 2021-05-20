@@ -4842,9 +4842,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4015523362730062325}
-  - component: {fileID: 5607845792119128222}
   - component: {fileID: 3330198822995674323}
   - component: {fileID: 5111953147541452423}
+  - component: {fileID: 5607845792119128222}
   m_Layer: 0
   m_Name: FireballProjectile
   m_TagString: Untagged
@@ -4868,27 +4868,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5607845792119128222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8962371902251680269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb4592ee9f0502a4c9a05aef33a9f865, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _target: {fileID: 0}
-  _destroyOnHit:
-  - {fileID: 4668390380899086133}
-  _projectileSpeed: 5
-  _damage: 10
-  _canPursueTarget: 1
-  _timeUntilDestroy: 0
-  _hitParticles: {fileID: 6551253153487211145, guid: 05b66e5375314c34a9a9728122bcb804,
-    type: 3}
 --- !u!65 &3330198822995674323
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4918,3 +4897,24 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5607845792119128222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8962371902251680269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb4592ee9f0502a4c9a05aef33a9f865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
+  _destroyOnHit:
+  - {fileID: 4668390380899086133}
+  _projectileSpeed: 5
+  _damage: 10
+  _canPursueTarget: 1
+  _timeUntilDestroy: 0
+  _hitParticles: {fileID: 6551253153487211145, guid: 05b66e5375314c34a9a9728122bcb804,
+    type: 3}
