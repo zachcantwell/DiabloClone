@@ -7,7 +7,7 @@ namespace RPG.Stats
     [CreateAssetMenu(fileName = "Progression", menuName = "Stats/New Progression", order = 1)]
     public class Progression : ScriptableObject
     {
-        [SerializeField] ProgressionCharacterClass[] _progressionCharacterClass;
+        [SerializeField] ProgressionCharacterClass[] _progressionCharacterClass = null;
 
         [System.Serializable]
         class ProgressionCharacterClass
@@ -19,11 +19,11 @@ namespace RPG.Stats
 
         public int GetHealthForClassLevel(CharacterClass currentClass, int currentLevel)
         {
-            foreach (var character in _progressionCharacterClass)
+            foreach (ProgressionCharacterClass progressionCharacter in _progressionCharacterClass)
             {
-                if (currentClass == character._characterClass)
+                if (currentClass == progressionCharacter._characterClass)
                 {
-                    return character._healthLevel[currentLevel - 1];
+                    return progressionCharacter._healthLevel[currentLevel - 1];
                 }
             }
             return 0;

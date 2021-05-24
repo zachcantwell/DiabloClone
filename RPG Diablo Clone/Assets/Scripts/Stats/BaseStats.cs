@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using RPG.Core;
+using RPG.Resources;
 using RPG.Combat;
 
 namespace RPG.Stats
@@ -22,5 +22,12 @@ namespace RPG.Stats
             _attackPower = _progression.GetAttackForClassLevel(_characterClass, _currentLevel);
             GetComponent<Fighter>().SetAttackLevelMultiplier(_attackPower);
         }
+
+        public int GetMaxHealth()
+        {
+            return _progression.GetHealthForClassLevel(_characterClass, _currentLevel);
+        }
+
+
     }
 }
