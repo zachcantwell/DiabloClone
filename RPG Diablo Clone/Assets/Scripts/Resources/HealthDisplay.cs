@@ -8,9 +8,7 @@ namespace RPG.Resources
 {
     public class HealthDisplay : MonoBehaviour
     {
-        [SerializeField] private Text _playerHealthPercentText;
-        [SerializeField] private Text _targetHealthPercentText;
-
+        private Text _playerHealthPercentText;
         private Health _playerHealth;
 
         void Awake()
@@ -23,21 +21,9 @@ namespace RPG.Resources
         {
             if (_playerHealth)
             {
-                Health targetsHealth = _playerHealth.GetComponent<Fighter>().GetTargetsHealth();
-                if (targetsHealth)
-                {
-                    float targetHealthPercent = targetsHealth.GetHealthPercentage();
-                    _targetHealthPercentText.text = targetHealthPercent.ToString() + "%";
-                }
-                else if (_targetHealthPercentText != null)
-                {
-                    _targetHealthPercentText.text = "";
-                }
-
                 float playerHealthPercent = _playerHealth.GetHealthPercentage();
                 _playerHealthPercentText.text = playerHealthPercent.ToString() + "%";
             }
-
         }
     }
 }
