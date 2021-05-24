@@ -10,6 +10,7 @@ namespace RPG.Combat
     {
         [SerializeField] private Health _target;
         [SerializeField] private GameObject[] _destroyOnHit;
+        [SerializeField] private GameObject _instigator = null;
         [SerializeField] private float _projectileSpeed = 2f;
         [SerializeField] private float _damage = 1f;
         [SerializeField] private bool _canPursueTarget = false;
@@ -43,8 +44,9 @@ namespace RPG.Combat
             }
         }
 
-        public void SetTarget(Health target, float damage)
+        public void SetTarget(GameObject instigator, Health target, float damage)
         {
+            _instigator = instigator;
             _target = target;
             _damage = damage;
         }
@@ -85,7 +87,7 @@ namespace RPG.Combat
                         return;
                     }
 
-                    targetHealth.TakeDamage(_damage);
+                    targetHealth.TakeDamage(_instigator, _damage);
 
                     if (_hitParticles)
                     {

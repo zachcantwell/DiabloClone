@@ -13,10 +13,11 @@ namespace RPG.Stats
         [SerializeField] Progression _progression = null;
         [SerializeField] int _maxHealth = 1;
         [SerializeField] int _attackPower = 1;
+        [SerializeField] float _experienceReward = 1f;
 
         void Start()
         {
-            _maxHealth = _progression.GetHealthForClassLevel(_characterClass, _currentLevel);
+            _maxHealth = GetMaxHealth();
             GetComponent<Health>().RestoreState((float)_maxHealth);
 
             _attackPower = _progression.GetAttackForClassLevel(_characterClass, _currentLevel);
@@ -25,7 +26,12 @@ namespace RPG.Stats
 
         public int GetMaxHealth()
         {
-            return _progression.GetHealthForClassLevel(_characterClass, _currentLevel);
+            return (int)_progression.GetStat(Stat.Health, _characterClass, _currentLevel);
+        }
+
+        public float GetExperienceReward()
+        {
+            return _experienceReward;
         }
 
 

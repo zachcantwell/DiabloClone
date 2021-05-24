@@ -5174,6 +5174,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8672484253799308997, guid: 02e1c928e8eea204e84815a5395b45a5,
+        type: 3}
+      propertyPath: _enemyHealthPercentText
+      value: 
+      objectReference: {fileID: 1537021613868648341}
     - target: {fileID: 8908390342313397657, guid: 02e1c928e8eea204e84815a5395b45a5,
         type: 3}
       propertyPath: _targetHealthPercentText

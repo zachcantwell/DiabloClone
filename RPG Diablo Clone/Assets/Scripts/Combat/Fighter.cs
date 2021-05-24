@@ -71,12 +71,12 @@ namespace RPG.Combat
 
             if (_currentWeapon.HasProjectile())
             {
-                _currentWeapon.LaunchProjectile(_rightHandTransform, _leftHandTransform, targetsHealth);
+                _currentWeapon.LaunchProjectile(gameObject, _rightHandTransform, _leftHandTransform, targetsHealth);
             }
             else
             {
                 Debug.Log("Weapon Damage = " + _currentWeapon.GetWeaponDamage().ToString() + " * attackLevel = " + (_currentWeapon.GetWeaponDamage() * _attackLevel).ToString());
-                targetsHealth.TakeDamage(_currentWeapon.GetWeaponDamage() * _attackLevel);
+                targetsHealth.TakeDamage(gameObject, _currentWeapon.GetWeaponDamage() * _attackLevel);
             }
         }
 
