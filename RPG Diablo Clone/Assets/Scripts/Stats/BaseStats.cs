@@ -17,23 +17,16 @@ namespace RPG.Stats
 
         void Start()
         {
-            _maxHealth = GetMaxHealth();
+            _maxHealth = GetStat(Stat.Health);
             GetComponent<Health>().RestoreState((float)_maxHealth);
 
-            _attackPower = _progression.GetAttackForClassLevel(_characterClass, _currentLevel);
+            _attackPower = GetStat(Stat.AttackPower);
             GetComponent<Fighter>().SetAttackLevelMultiplier(_attackPower);
         }
 
-        public int GetMaxHealth()
+        public int GetStat(Stat stat)
         {
-            return (int)_progression.GetStat(Stat.Health, _characterClass, _currentLevel);
+            return (int)_progression.GetStat(stat, _characterClass, _currentLevel);
         }
-
-        public float GetExperienceReward()
-        {
-            return _experienceReward;
-        }
-
-
     }
 }

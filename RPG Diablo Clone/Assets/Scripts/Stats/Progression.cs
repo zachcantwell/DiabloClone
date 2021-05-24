@@ -13,8 +13,6 @@ namespace RPG.Stats
         class ProgressionCharacterClass
         {
             [SerializeField] public CharacterClass _characterClass;
-            [SerializeField] public int[] _healthLevel;
-            [SerializeField] public int[] _attackLevel;
             [SerializeField] public ProgressionStat[] _progressionStat;
         }
 
@@ -36,28 +34,16 @@ namespace RPG.Stats
 
                 foreach (ProgressionStat progressionStat in progressionClass._progressionStat)
                 {
-                    if (progressionStat._stat != stat)
+                    if (progressionStat._stat != stat || progressionStat._levels.Length < currentLevel)
                     {
                         continue;
                     }
                     return progressionStat._levels[currentLevel - 1];
                 }
-                return progressionClass._healthLevel[currentLevel - 1];
             }
             return 0f;
         }
 
-        public int GetAttackForClassLevel(CharacterClass currentClass, int currentLevel)
-        {
-            foreach (var character in _progressionCharacterClass)
-            {
-                if (currentClass == character._characterClass)
-                {
-                    return character._attackLevel[currentLevel - 1];
-                }
-            }
-            return 0;
-        }
 
     }
 }
